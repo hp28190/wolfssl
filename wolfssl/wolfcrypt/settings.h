@@ -342,7 +342,6 @@
     #define NO_FILESYSTEM
     #define NO_WRITEV
     #define WOLFSSL_USER_IO
-    #define BENCH_EMBEDDED
 #endif
 
 #ifdef MICROCHIP_PIC32
