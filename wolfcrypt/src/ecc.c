@@ -8295,6 +8295,7 @@ static int wc_ecc_import_raw_private(ecc_key* key, const char* qx,
           const char* qy, const char* d, int curve_id, int encType)
 {
     int err = MP_OKAY;
+    word32 keySz = 0;	//needed in line 8376 for ATECC component
 #if defined(WOLFSSL_CRYPTOCELL) && !defined(WOLFSSL_ATECC508A) && \
     !defined(WOLFSSL_ATECC608A)
     const CRYS_ECPKI_Domain_t* pDomain;
@@ -8305,7 +8306,7 @@ static int wc_ecc_import_raw_private(ecc_key* key, const char* qx,
 #if (defined(WOLFSSL_CRYPTOCELL) && !defined(WOLFSSL_ATECC508A) &&      \
      !defined(WOLFSSL_ATECC608A))  ||                                   \
   defined(WOLFSSL_SILABS_SE_ACCEL)
-    word32 keySz = 0;
+    //word32 keySz = 0;
 #endif
 
     /* if d is NULL, only import as public key using Qx,Qy */
